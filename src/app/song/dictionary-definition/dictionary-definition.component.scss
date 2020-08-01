@@ -1,0 +1,59 @@
+
+
+.center {
+    width: 50%;
+    margin-left: auto;
+    display: block;
+    margin-right: auto;
+
+}
+
+button {
+    margin-top: 30px ;
+}
+
+.close {
+    float: right;
+    padding: 0;
+    position: relative;
+    top: -47px;
+    left: 23px;
+    font-size: 23px;
+}
+
+.dictionary_global_header{
+    font-weight: bold;
+    padding-top: 5px;
+    padding-right: 5px;
+    padding-bottom: 5px;
+}
+
+.accidence_word{
+    font-style: italic;
+    color: #6c6c6c;
+}
+
+.phrase_key{
+    font-weight: bold;
+    padding-right: 5px;
+}
+
+
+
+.canonical_word{
+    font-weight: bold;
+    padding-left: 5px;
+}
+
+.dictionary_entry_content{
+    margin-top: 8px;
+    text-justify: inter-word;
+    padding-right: 8px;
+    color: #6c6c6c;
+}
+
+.accidence_word{
+    padding-right: 5px;
+    font-style: italic;
+    color: #6c6c6c;
+}

@@ -1,0 +1,74 @@
+<div style="font-family: Arial, Tahoma, Helvetica, sans-serif">
+
+<div style = 'cursor : pointer'>
+  <i class="fa fa-times close" aria-hidden="true"  (click) = 'close()'></i>
+</div>
+<form #dictionaryForm = 'ngForm'>
+
+  <h4 style = 'text-align : center ; '></h4>
+
+
+
+  <div *ngIf="meaningScreen">
+    <div *ngIf="meaningScreen.inflected_word" class="dictionary_global_header">
+      <span [ngClass]="{'nastaliq': meaningScreen.useNastaliq}" >{{meaningScreen.inflected_word}}</span> &nbsp;-&nbsp; <span class="part_of_speech">{{meaningScreen.part_of_speech}}</span>
+    </div>
+
+
+    <div *ngIf="meaningScreen.accidence" >
+      <span class="accidence_word"> {{meaningScreen.accidence}}</span>
+      <span *ngIf="meaningScreen.show_canonical">
+        <span class="accidence_word">of</span>
+        <span class="canonical_word" [ngClass]="{'nastaliq': meaningScreen.useNastaliq}">{{meaningScreen.canonical_word}}</span>
+      </span>
+    </div>
+
+    <p *ngIf="meaningScreen.meaning" class="dictionary_entry_content" [innerHTML]="meaningScreen.meaning"></p>
+
+
+    <div *ngFor="let entry of getEntries(meaningScreen.phrases)" id="#phrases">
+      <span class="phrase_key" [ngClass]="{'nastaliq': meaningScreen.useNastaliq}">{{entry[0]}}</span>
+      <p class="dictionary_entry_content" [innerHTML]="entry[1]"></p>
+      <br/>
+    </div>
+
+  </div>
+
+
+
+<!--  <div>-->
+<!--    <mat-form-field appearance="outline" style = 'width : 100%'>-->
+<!--      <mat-label>Name</mat-label>-->
+<!--      <input matInput placeholder="Name"  name = 'name' ngModel required>-->
+<!--      &lt;!&ndash; <mat-hint>Hint</mat-hint> &ndash;&gt;-->
+<!--    </mat-form-field>-->
+<!--  </div>-->
+<!--  <div>-->
+
+<!--    <mat-form-field appearance="outline" style = 'width : 100%'>-->
+<!--      <mat-label>Phone</mat-label>-->
+<!--      <input matInput placeholder="Phone" name = 'phone' ngModel required>-->
+<!--      &lt;!&ndash; <mat-hint>Hint</mat-hint> &ndash;&gt;-->
+<!--    </mat-form-field>-->
+<!--  </div>-->
+<!--  <div>-->
+<!--    <mat-form-field appearance="outline" style = 'width : 100%'>-->
+<!--      <mat-label>Email</mat-label>-->
+<!--      <input matInput placeholder="Email" name = 'email' ngModel required>-->
+<!--      &lt;!&ndash; <mat-hint>Hint</mat-hint> &ndash;&gt;-->
+<!--    </mat-form-field>-->
+<!--  </div>-->
+<!--  <div>-->
+<!--    <p>How do you prefer to be contacted?</p>-->
+<!--    <mat-radio-group aria-label="Select an option" name = 'contactOption' [(ngModel)] = 'contactOption'>-->
+<!--      <mat-radio-button value="phone" selected >Phone</mat-radio-button>&nbsp;&nbsp;-->
+<!--      <mat-radio-button value="email" >Email</mat-radio-button>-->
+<!--    </mat-radio-group>-->
+
+<!--  </div>-->
+  <div style = 'cursor : pointer ; '>
+    <button class = 'center' mat-raised-button color="primary"  (click) = 'close()' >Close</button>
+  </div>
+</form>
+
+</div>

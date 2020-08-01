@@ -1,0 +1,32 @@
+<ng-container>
+  <div id="song-container-main" class="songcontainer-main">
+    <header>{{songModel.bollyName}}</header>
+    <div style="display: flex; flex-flow: column nowrap; align-items: center; width: 100%">
+      <div class="tag-container">
+        <a *ngFor="let tag of songModel.tags" routerLink="/tag/{{tag.key}}" routerLinkActive="active">
+          <div  class="tag-item" (mouseover)="changeTagItemStyle($event)"
+                (mouseout)="changeTagItemStyle($event)" (click)="changeTagItemStyle($event)">{{tag.title}}</div>
+        </a>
+      </div>
+
+
+    </div>
+    <br>
+
+
+    <div id="song-container-text" class="song-container-text">
+
+      <div [innerHtml]="songModel.plainHtml"></div>
+
+    </div>
+
+    <div class="clickable-dictionary-redirect">
+      <div>Click here for a <a routerLink="{{this.clickableDictionaryLink}}" routerLinkActive="active">Full Clickable Dictionary View</a>  of the song, where you can click on each word to obtain a definition</div>
+      <br/>
+      <button (click)="navigateToClickableDictionary()">Full Dictionary View</button>
+    </div>
+
+    <app-footer></app-footer>
+  </div>
+
+</ng-container>

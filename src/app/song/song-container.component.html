@@ -1,0 +1,92 @@
+<ng-container>
+    <div id="song-container-main" class="songcontainer-main">
+        <header>{{songModel.bollyName}}</header>
+        <div style="display: flex; flex-flow: column nowrap; align-items: center; width: 100%">
+            <div class="tag-container">
+                <a *ngFor="let tag of songModel.tags" routerLink="/tag/{{tag.key}}" routerLinkActive="active">
+                    <div  class="tag-item" (mouseover)="changeTagItemStyle($event)"
+                         (mouseout)="changeTagItemStyle($event)" (click)="changeTagItemStyle($event)">{{tag.title}}</div>
+                </a>
+            </div>
+
+            <ng-container *ngIf="isBrowser">
+                <youtube-player
+                        [videoId]="videoId"
+                        (ready)="savePlayer($event)"
+                        (change)="onStateChange($event)"
+                        [playerVars]="playerVars">
+                </youtube-player>
+
+
+            </ng-container>
+        </div>
+            <br>
+            <div style="height: 40px; text-align: center; width: 100%">
+                <span *ngIf="showNastaliqOption">
+                    <mat-checkbox title="Use Nastaliq Calligraphy"
+                                  (change)="toggleNastaliq()"
+                                  [(ngModel)]="nastaliqCalligraphy">Nastaʿlīq Calligraphy</mat-checkbox>
+                </span>
+            </div>
+            <div class="dictionary-use-hint">Click on each word do display its meaning</div>
+            <br/>
+            <div *ngIf="lessThan100Width()" class="dictionary-use-hint">Click on any paragraph's background to display an English translation</div>
+            <br/>
+            <div id="song-container-text" class="song-container-text">
+                <div *ngFor="let block of paragraphBlocks" class="paragraph-block">
+
+                    <!--                    <div class="first-panel">-->
+                    <div dir="ltr" dir="{{languageParagraphDir}}" class="{{languageParagraphClass}}"
+                         (click)="toggleVisibilityLanguagePanel($event)">
+                        <div *ngIf="block.minutes!=null || block.seconds!=null" class="time-indication"
+                              dir="ltr">
+                            <span class="time-indication-number">{{("00" + block.minutes).slice(-2)}}
+                                :{{("00" + block.seconds).slice(-2)}}</span>
+                            <img src="assets/material-icons/play_circle_outline-24px.svg" alt="Play" (click)="timeClicked($event, block)"/>
+                            <img src="assets/material-icons/pause_circle_outline-24px.svg" alt="Pause" (click)="pauseClicked($event)"/>
+                        </div>
+                        <div *ngFor="let line of block.languageParagraph" class="paragraph-line">
+                            <ng-container *ngFor="let wordSpan of line">
+                                <span *ngIf="wordSpan.ltrBlock" dir="ltr">
+                                    <span *ngFor="let ltrWord of wordSpan.words" >
+                                      <span *ngIf="ltrWord.irrelevant" class="irrelevant">{{ltrWord.content}}</span>
+                                      <span *ngIf="ltrWord.punctuation" class="{{languagePunctuationClass}}">{{ltrWord.content}}</span>
+                                      <span *ngIf="ltrWord.space">&nbsp;</span>
+                                    </span>
+                                </span>
+                                <span *ngIf="!wordSpan.ltrBlock">
+                                    <br *ngIf="wordSpan.break">
+                                    <span *ngIf="wordSpan.irrelevant" class="irrelevant">{{wordSpan.content}}</span>
+                                    <span *ngIf="wordSpan.relevant" class="relevant"
+                                          id="{{ wordSpan.index}}">{{wordSpan.content}}</span>
+                                    <span *ngIf="wordSpan.punctuation"
+                                          class="{{languagePunctuationClass}}">{{wordSpan.content}}</span>
+                                    <span *ngIf="wordSpan.space">&nbsp;</span>
+                                </span>
+                            </ng-container>
+                        </div>
+                    </div>
+                    <!--                    </div>-->
+                    <!--                    <div class="second-panel">-->
+                    <div class="english-paragraph" (click)="toggleVisibilityLanguagePanel($event)">
+                        <div *ngIf="block.minutes!=null || block.seconds!=null" class="time-indication-filler"></div>
+                        <div *ngFor="let line of block.translationParagraph" class="paragraph-line">
+                            {{line}}
+                        </div>
+                    </div>
+                    <!--                    </div>-->
+                </div>
+            </div>
+
+            <div class="description" [innerHtml]="songModel.description"></div>
+     </div>
+     <br/>
+     <div class="plain-text-redirect">
+       <div>Click here for a <a routerLink="{{this.plainTextLink}}" routerLinkActive="active">plain text</a> version of the song</div>
+       <br/>
+       <button (click)="navigateToPlain()">Plain Text</button>
+     </div>
+
+    <app-footer></app-footer>
+
+</ng-container>

@@ -1,0 +1,67 @@
+.not-found {
+  padding: 10px;
+  text-align: center;
+  line-height: 150%;
+}
+
+
+.entry-container{
+  display: flex;
+  flex-flow: column nowrap;
+}
+
+.entry{
+  display: flex;
+  flex-flow: column nowrap;
+  text-align: center;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+
+.meaning {
+  margin-top: 10px;
+  color: darkslategray;
+}
+
+.nastaliq {
+  font-family: 'Noto Nastaliq Urdu Draft', serif;
+  vertical-align: top;
+}
+
+.headwords {
+  //border: 1px solid red;
+  font-weight: bold;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+}
+
+.headwords span{
+  //border: 1px solid blue;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+
+}
+
+.headwords i{
+  //border: 1px solid blue;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  font-weight: normal;
+}
+
+.song-container{
+  //border: 1px solid orange;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+}
+
+
+.song-list-title{
+  font-size: larger;
+  text-align: center;
+}

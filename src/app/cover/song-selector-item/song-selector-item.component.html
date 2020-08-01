@@ -1,0 +1,8 @@
+<a routerLink="/song/{{transliterationAsString()}}/{{songSelectorItem.urlKey}}" routerLinkActive="active">
+  <div class="songSelectorItem">
+      <ng-container>
+        <img class="songSelectorThumb" [src]="imageUrl" [alt]="this.songSelectorItem.bollyName">
+      </ng-container>
+      <span class="songTitle">{{songSelectorItem.bollyName}}</span>
+  </div>
+</a>

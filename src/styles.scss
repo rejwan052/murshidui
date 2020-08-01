@@ -1,0 +1,23 @@
+/* You can add global styles to this file, and also import other style files */
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+@import "app-theme";
+
+.html .body{
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  overflow: hidden;
+}
+
+
+.right-aligned-header > .mat-content {
+    justify-content: space-between;
+}
+
+.mat-content > mat-panel-title, .mat-content > mat-panel-description {
+  flex: 0 0 auto;
+
+}
+
+

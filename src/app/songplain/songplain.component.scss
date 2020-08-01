@@ -1,0 +1,297 @@
+:host{
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+header{
+  width: 100%;
+  text-align: center;
+  margin-top: 10px;
+}
+
+.songcontainer-main{
+  display: flex;
+  order: 0;
+  width: 100%;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+}
+
+@media (min-width: 1000px) {
+
+  .songcontainer-main{
+    display: flex;
+    order: 0;
+    width: 1000px;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+  }
+
+}
+
+
+
+.song-container-text {
+  display: flex;
+  width: 90%;
+  flex: 1 0 auto;
+  flex-flow: column nowrap;
+  align-items: stretch;
+}
+
+.language-ltr-paragraph{
+  text-align: justify;
+  background-color:  white;
+  flex: 1 0 auto;
+  width: 98%;
+  visibility: visible;
+  border: 0.5px solid silver;
+  padding-right: 5px;
+  padding-left: 5px;
+}
+
+@media (min-width: 1000px) {
+  .language-ltr-paragraph{
+    text-align: justify;
+    background-color:  white;
+    flex: 1 0 auto;
+    width: 48%;
+    visibility: visible;
+    padding-right: 5px;
+    padding-left: 5px;
+    border: 0.5px solid silver;
+  }
+}
+
+.urdu-paragraph{
+  text-align: justify;
+  background-color:  white;
+  flex: 1 0 auto;
+  width: 100%;
+  visibility: visible;
+  padding-right: 10px;
+  padding-left: 5px;
+  border: 0.5px solid silver;
+}
+
+@media (min-width: 1000px) {
+  .urdu-paragraph{
+    text-align: justify;
+    background-color:  white;
+    flex: 1 0 auto;
+    width: 48%;
+    visibility: visible;
+    padding-right: 10px;
+    padding-left: 5px;
+    border: 0.5px solid silver;
+  }
+}
+
+.english-paragraph{
+  background-color: whitesmoke;
+  flex: 1 0 auto;
+  width: 98%;
+  text-align: left;
+  padding-right: 5px;
+  padding-left: 10px;
+  border: 0.5px solid silver;
+}
+
+@media (min-width: 1000px) {
+  .english-paragraph {
+    background-color: whitesmoke;
+    flex: 1 0 auto;
+    width: 48%;
+    text-align: left;
+    padding-right: 5px;
+    padding-left: 10px;
+    border: 0.5px solid silver;
+  }
+}
+
+
+.paragraph-line{
+  height: 40px;
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+}
+
+.paragraph-block{
+  display: flex;
+  flex-flow: row nowrap;
+  flex: 1 0 auto;
+  padding: 5px;
+  width: 95%;
+}
+
+.warning-dialog * {
+  font-family: Arial, Tahoma, Helvetica, sans-serif;
+}
+
+.warning-paragraph {
+  font-family: Arial, Tahoma, Helvetica, sans-serif;
+}
+
+
+
+.time-indication {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  margin-top: 10px;
+  margin-bottom: -5px;
+  width: 195px;
+  cursor: pointer;
+  height: 35px;
+  justify-content: space-around;
+}
+
+.time-indication-number {
+  font-size: small;
+  padding-right: 3px;
+}
+
+.time-indication-filler {
+  margin-top: 10px;
+  margin-bottom: -5px;
+  height: 35px;
+  width: 65px;
+}
+
+
+.murshid-body{
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: stretch;
+  padding-bottom: 105px;
+}
+
+.selectedRed {
+  color: red;
+}
+
+.relevant {
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+}
+
+.irrelevant {
+  display: inline-flex;
+  align-items: center;
+
+}
+
+:host ::ng-deep .nastaliq-span {
+  font-family: 'Noto Nastaliq Urdu Draft', serif;
+  padding-left: 4px;
+  font-style: italic;
+}
+
+
+.translation_word{
+  display: inline-flex;
+  align-items: center;
+}
+
+
+.ltrPunctuationMark {
+  display: inline-flex;
+  align-items: center;
+}
+
+.rtlPunctuationMark {
+  margin-left: 1%;
+  padding-top: 1.5%;
+  display: inline-flex;
+  align-items: center;
+}
+
+.selectedGreen {
+  color: green;
+}
+
+.description{
+  text-align: justify;
+  width: 90%;
+  /*margin: 10px;*/
+  padding: 5px;
+}
+
+@media (min-width: 1000px) {
+  .description {
+    width: 90%;
+    text-align: justify;
+    /*margin: 10px;*/
+    padding: 5px;
+  }
+}
+
+.tag-container {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  display: flex;
+  flex-flow: row wrap;
+}
+
+.tag-item {
+  background-color: #d9d9d9;
+  color: black;
+  padding: 5px;
+  margin: 3px;
+  font-size: 14px;
+}
+
+.tag-item-hover  {
+  background-color: #808080;
+  color: white;
+}
+
+.tag-container a {
+  text-decoration: none;
+  color: inherit;
+}
+
+
+
+/* :host /deep/ mySelector { */
+:host ::ng-deep .stanza {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  text-align: center;
+}
+
+:host ::ng-deep .stanza i{
+  color: #808080;
+  font-weight: bold;
+}
+
+
+.clickable-dictionary-redirect{
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  padding: 5px;
+  justify-items: flex-start;
+}
+
+.clickable-dictionary-redirect div {
+  text-align: center;
+}
+
+.clickable-dictionary-redirect button{
+  color: white;
+  font-weight: bold;
+  background-color: #efba65;
+  border-radius: 5px;
+  font-size: large;
+  padding: 15px;
+}

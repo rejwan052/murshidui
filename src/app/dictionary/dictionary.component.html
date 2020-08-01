@@ -1,0 +1,49 @@
+<ng-container xmlns="http://www.w3.org/1999/html">
+
+  <div class="not-found" *ngIf="searchWord === undefined">
+    No word specified
+  </div>
+
+  <div class="not-found" *ngIf="searchWord !== undefined &&  !thereAreDictionaryviews()">
+    The word <strong>{{this.searchWord}}</strong> was not found in the dictionary
+  </div>
+
+
+  <div class="entry-container" *ngIf="thereAreDictionaryviews()">
+    <br/>
+    <div class="entry" *ngFor="let entry of this.dictionariesAndSongs.dictionary_views">
+      <div class="headwords">
+        <span *ngIf="!isNastaliq">{{entry.hindi}}</span>
+        <span *ngIf="isNastaliq" class="nastaliq">{{entry.urdu}}</span>
+        <span>&nbsp;&nbsp;-&nbsp;&nbsp;</span>
+        <i>{{entry.latin}}</i>
+      </div>
+      <div>
+        {{entry.part_of_speech}} <span *ngIf="entry.accidence"> - {{entry.accidence}}</span>
+      </div>
+      <br/>
+      <span class="meaning" [innerHtml]="entry.meaning"></span>
+    </div>
+    <br/>
+    <br/>
+  </div>
+
+  <div  class="song-list-title" *ngIf="thereAreSongSelectors()">Songs containing the word {{this.searchWord}}</div>
+
+  <div class="song-container"  *ngIf="thereAreSongSelectors()">
+
+      <div *ngFor="let songSelector of dictionariesAndSongs.song_selectors ; let i=index">
+        <app-song-selector-item
+          [songSelectorItem]="songSelector"
+          [selectorIndex]="i">
+        </app-song-selector-item>
+      </div>
+
+  </div>
+
+
+
+
+
+<ng-container>
+

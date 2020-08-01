@@ -1,0 +1,19 @@
+.songSelectorThumb{
+    width: 300px;
+    height: 168.75px;
+    padding: 30px 10px 0px 10px;
+}
+
+
+.songSelectorItem {
+    display: flex;
+    flex-flow: column wrap;
+}
+
+.songTitle {
+    background-color: #fafafa;
+    text-align: center;
+    margin-left: 10px;
+    margin-right: 10px
+}
+

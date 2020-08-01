@@ -1,0 +1,44 @@
+.cover{
+    display: flex;
+    order: 0;
+    width: 100%;
+    flex-flow: row wrap;
+    justify-content: center;
+}
+
+.tag-text{
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+}
+
+.tag-text span{
+  text-align: justify;
+}
+
+
+:host {
+    padding: 0;
+    height: 100%;
+    left: 0;
+    right: 0;
+    margin: auto;
+    overflow-y: scroll;
+    display: flex;
+    flex-flow: column nowrap;
+}
+
+.title {
+  display: block;
+  text-align: center;
+  padding: 5px;
+  font-weight: bold;
+}
+
+app-selector {
+  margin: 10px;
+}
+
+
+
+

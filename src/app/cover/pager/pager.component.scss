@@ -1,0 +1,60 @@
+.pager{
+    display: flex;
+    order: 0;
+    width: 100%;
+    flex-flow: row wrap;
+    justify-content: center;
+    font-size: 12px;
+    margin-top: 10px;
+}
+
+.pageRect{
+    width: 20px;
+    height: 20px;
+    padding: 3px;
+    padding-top: 7px;
+    margin: 5px;
+    border: 1px solid grey;
+    text-align: center;
+    vertical-align: middle;
+    background-color: white;
+    color: #575757;
+    cursor: pointer;
+}
+
+.pageRect:hover{
+  background-color: #555555;
+  color: white;
+  font-weight: bold;
+}
+
+.endRect{
+    width: 20px;
+    height: 20px;
+    padding: 3px;
+    padding-top: 7px;
+    margin: 5px;
+    text-align: center;
+    vertical-align: middle;
+    cursor: pointer;
+}
+
+.rectSelected{
+    background-color: #555555;
+    color: white;
+    font-weight: bold;
+}
+
+.nextHolder {
+  width: 60px;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: flex-start;
+}
+
+.previousHolder {
+  width: 60px;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: flex-end;
+}

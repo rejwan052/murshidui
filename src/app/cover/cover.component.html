@@ -1,0 +1,31 @@
+<ng-container>
+        <app-selector *ngIf="isHandset$ | async"></app-selector>
+        <br/>
+        <title  class="title" *ngIf="tagTitle">{{tagTitle}}</title>
+        <br/>
+  <div class="tag-text" *ngIf="isTag"><span>{{this.tagDescription}}</span></div>
+        <app-pager
+                   (pageClick)="pagerPageClicked($event)"
+                   (nextClick)="pagerNextClicked($event)"
+                   (previousClick)="pagerPreviousClicked($event)"
+        ></app-pager>
+
+          <div class="cover" role="region">
+            <div *ngFor="let songSelector of songSelectors ; let i=index">
+                <app-song-selector-item
+                        [songSelectorItem]="songSelector"
+                        [selectorIndex]="i">
+                </app-song-selector-item>
+            </div>
+        </div>
+    <br/>
+    <br/>
+    <app-pager
+               (pageClick)="pagerPageClicked($event)"
+               (nextClick)="pagerNextClicked($event)"
+               (previousClick)="pagerPreviousClicked($event)"
+    ></app-pager>
+    <br/>
+    <app-footer></app-footer>
+
+</ng-container>
