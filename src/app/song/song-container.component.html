@@ -8,17 +8,14 @@
                          (mouseout)="changeTagItemStyle($event)" (click)="changeTagItemStyle($event)">{{tag.title}}</div>
                 </a>
             </div>
-
-            <div id="videoPlayer">
-                <ng-container *ngIf="isBrowser">
-                    <youtube-player
-                            [videoId]="videoId"
-                            (ready)="savePlayer($event)"
-                            (change)="onStateChange($event)"
-                            [playerVars]="playerVars">
-                    </youtube-player>
-                </ng-container>
-            </div>
+            <ng-container *ngIf="isBrowser">
+                <youtube-player
+                        [videoId]="videoId"
+                        (ready)="savePlayer($event)"
+                        (change)="onStateChange($event)"
+                        [playerVars]="playerVars">
+                </youtube-player>
+            </ng-container>
         </div>
             <br>
             <div style="height: 40px; text-align: center; width: 100%">

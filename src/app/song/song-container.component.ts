@@ -325,12 +325,11 @@ export class SongContainerComponent implements OnInit, OnDestroy {
 
     @HostListener('window:scroll', ['$event'])
     onWindowScroll(e) {
-        let videoSticky = document.getElementById("videoPlayer");
-        let sticky = videoSticky.offsetTop;
-        if (window.pageYOffset > sticky) {
-            videoSticky.classList.add("sticky");
+        const iframeTop = this.player.f.offsetTop;
+        if (window.pageYOffset > iframeTop) {
+            this.player.f.classList.add("sticky");
         } else {
-            videoSticky.classList.remove("sticky");
+            this.player.f.classList.remove("sticky");
         }
     }
 
