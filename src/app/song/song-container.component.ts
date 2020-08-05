@@ -7,7 +7,8 @@ import {
   OnDestroy,
   OnInit,
   PLATFORM_ID,
-  Renderer2
+  Renderer2,
+  HostListener
 } from '@angular/core';
 
 import {SongsService} from '../services/songs.service';
@@ -15,7 +16,7 @@ import {Transliteration} from '../models/Transliteration';
 import {Section} from '../models/Section';
 import {ActivatedRoute, Router} from '@angular/router';
 import {SongModel} from '../models/SongModel';
-import {isPlatformBrowser} from '@angular/common';
+import {isPlatformBrowser, DOCUMENT} from '@angular/common';
 import {fromEvent} from 'rxjs';
 import {debounceTime} from 'rxjs/operators';
 import {ParagraphBlock} from '../models/ParagraphBlock';
@@ -25,6 +26,7 @@ import {Globals} from '../services/globals.service';
 import {DictionaryDefinitionComponent} from './dictionary-definition/dictionary-definition.component';
 import {EnumUtils} from '../models/EnumUtils';
 import {environment} from '../../environments/environment';
+import { trigger, state, transition, animate, style } from '@angular/animations';
 
 declare var $: any;
 
@@ -65,7 +67,8 @@ export class SongContainerComponent implements OnInit, OnDestroy {
     constructor(private route: ActivatedRoute, private router: Router, private songsService: SongsService, private elementRef: ElementRef,
                 private renderer: Renderer2, @Inject(PLATFORM_ID) private platformId, private changeDetector: ChangeDetectorRef,
                 private title: Title, private meta: Meta, private globals: Globals, public dialog: MatDialog,
-                private _sanitizer: DomSanitizer
+                private _sanitizer: DomSanitizer,
+                @Inject(DOCUMENT) document
                 ) {
         this.isBrowser = isPlatformBrowser(platformId);
         this.clickedOnce = false;
@@ -318,6 +321,17 @@ export class SongContainerComponent implements OnInit, OnDestroy {
     savePlayer(player) {
         this.player = player;
         this.player.cueVideoById(this.videoId);
+    }
+
+    @HostListener('window:scroll', ['$event'])
+    onWindowScroll(e) {
+        let videoSticky = document.getElementById("videoPlayer");
+        let sticky = videoSticky.offsetTop;
+        if (window.pageYOffset > sticky) {
+            videoSticky.classList.add("sticky");
+        } else {
+            videoSticky.classList.remove("sticky");
+        }
     }
 
 }

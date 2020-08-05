@@ -1,6 +1,6 @@
 <ng-container>
-    <div id="song-container-main" class="songcontainer-main">
-        <header class="header-top-all">{{songModel.bollyName}}</header>
+    <div id="song-container-main" class="songcontainer-main" (scroll)="onWindowScroll($event);">
+        <header>{{songModel.bollyName}}</header>
         <div style="display: flex; flex-flow: column nowrap; align-items: center; width: 100%">
             <div class="tag-container">
                 <a *ngFor="let tag of songModel.tags" routerLink="/tag/{{tag.key}}" routerLinkActive="active">
@@ -9,17 +9,16 @@
                 </a>
             </div>
 
-            <ng-container *ngIf="isBrowser">
-                <youtube-player
-                        class="video-player-scroll"
-                        [videoId]="videoId"
-                        (ready)="savePlayer($event)"
-                        (change)="onStateChange($event)"
-                        [playerVars]="playerVars">
-                </youtube-player>
-
-
-            </ng-container>
+            <div id="videoPlayer">
+                <ng-container *ngIf="isBrowser">
+                    <youtube-player
+                            [videoId]="videoId"
+                            (ready)="savePlayer($event)"
+                            (change)="onStateChange($event)"
+                            [playerVars]="playerVars">
+                    </youtube-player>
+                </ng-container>
+            </div>
         </div>
             <br>
             <div style="height: 40px; text-align: center; width: 100%">

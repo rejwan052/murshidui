@@ -21,15 +21,13 @@
 }
 
 @media (min-width:200px) and (max-width:700px) {
-  .video-player-scroll{
-      position: fixed; 
-      top: 0px;
-      z-index: 9;
+  .sticky {
+    position: fixed;
+    top: 0; 
+    left: 8px;
+    width: 100%;
   }
 
-  .header-top-all{
-    margin-top: 226px !important;
-  }
 }
 
 
